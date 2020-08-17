@@ -19,7 +19,7 @@ a part of the overall statistical breakdown. The tabs will allow the user to swi
 ![wireframe](https://github.com/svkratzer/USPrisonDataVisualization/blob/master/readme_images/wireframe.png)
 ### Architecture and Technology 
 This project will utilize the popular D3 library to create a dynamic and interactive visualization of data. The data itself will be taken from the BJS (Bureau of Justice Statistics)
-in .csv format. Depending on how the project moves forward, an alternative source of data might be the [Prison Politcy Initiative]()https://www.prisonpolicy.org/data/
+in .csv format. Depending on how the project moves forward, an alternative source of data might be the [Prison Politcy Initiative](https://www.prisonpolicy.org/data/)
 or (for smaller amounts of data), data that I personally convert into a consumable format from trustworthy sources that don't provide the right formatting. 
 ### Implementation Timeline
 * *Day 1*: Familiarize myself with D3 and .csv formatted data sets. Begin to work on project structure.
