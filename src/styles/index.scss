@@ -37,11 +37,10 @@ $low-red: rgb(217, 160, 151);
 .high-positive, .med-positive, .low-positive, .high-negative, .med-negative, .low-negative {
   transition: 0.3s;
   &:hover {
-    stroke-width: 3;
+    stroke-width: 2;
     stroke: black;
   }
 }
-
 
 /* ETHNICITY WEIGHTED BUBBLES */
 #all-males-bubble, #all-females-bubble {
@@ -52,8 +51,17 @@ $low-red: rgb(217, 160, 151);
   transition: 0.3s;
 
   &:hover {
-    stroke-width: 3;
+    stroke-width: 2;
     stroke: black;
     stroke-dasharray: 0 0;
   }
+}
+
+/* TOOLTIP */
+.tooltip {
+  visibility: hidden;
+  z-index: 10;
+  position: absolute;
+  font-family: sans-serif;
+  font-size: 14px;
 }
