@@ -3,15 +3,19 @@ export const tooltip = d3.select("body")
   .attr("class", "tooltip")
 
 export const spaceCirclesEvenly = (circles, scale) => {
-  circles
-    .attr("cx", (d, i) => {
+  let baseRadius = 0;
+  circles.attr("cx", (d, i) => {
       let extraMargin = 0
-      if (i !== 0) {
+      let ratio = 1;
+      if (i === 0) { 
+        baseRadius = Math.pow(parseInt(d.numIncarcerated), 0.5); 
+      } else {
         const cumulativeMargin = parseInt(circles._groups[0][i - 1].attributes.cx.value);
         const prevRadius = parseInt(circles._groups[0][i - 1].attributes.r.value);
         extraMargin = cumulativeMargin + prevRadius
+        ratio = Math.pow(parseInt(d.numIncarcerated), 0.5) / baseRadius;
       }
-      return (Math.pow(parseInt(d.numIncarcerated), 0.5) * scale) + (extraMargin) + 25;
+      return (25 * scale * ratio) + (extraMargin) + 25;
     });
 }
 
@@ -62,8 +66,6 @@ export const formatClassName = (name) => {
 export const scaleCircleRadii = (circles, scale) => {
   let baseRadius = 0;
   circles
-    // .transition()
-    // .duration(1000)
     .attr("r", (d, i) => {
       if (i === 0) {
         baseRadius = Math.pow(parseInt(d.numIncarcerated), 0.5);
@@ -74,3 +76,7 @@ export const scaleCircleRadii = (circles, scale) => {
       }
     });
 };
+
+export const spaceEthnicityWeightedMale = () => {
+
+}
