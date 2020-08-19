@@ -1,19 +1,18 @@
-export const scale = 1;
-
 export const tooltip = d3.select("body")
   .append("div")
   .attr("class", "tooltip")
 
-export const spaceCirclesEvenly = (circles) => {
-  circles.attr("cx", (d, i) => {
-    let extraMargin = 0
-    if (i !== 0) {
-      const cumulativeMargin = parseInt(circles._groups[0][i - 1].attributes.cx.value);
-      const prevRadius = parseInt(circles._groups[0][i - 1].attributes.r.value);
-      extraMargin = cumulativeMargin + prevRadius
-    }
-    return (Math.pow(parseInt(d.numIncarcerated), 0.5) * scale) + (extraMargin) + 25;
-  });
+export const spaceCirclesEvenly = (circles, scale) => {
+  circles
+    .attr("cx", (d, i) => {
+      let extraMargin = 0
+      if (i !== 0) {
+        const cumulativeMargin = parseInt(circles._groups[0][i - 1].attributes.cx.value);
+        const prevRadius = parseInt(circles._groups[0][i - 1].attributes.r.value);
+        extraMargin = cumulativeMargin + prevRadius
+      }
+      return (Math.pow(parseInt(d.numIncarcerated), 0.5) * scale) + (extraMargin) + 25;
+    });
 }
 
 export const colorCodeCircles = (circles) => {
@@ -59,3 +58,19 @@ export const formatClassName = (name) => {
   const arr = downcased.split(" ");
   return arr.join("-")
 }
+
+export const scaleCircleRadii = (circles, scale) => {
+  let baseRadius = 0;
+  circles
+    // .transition()
+    // .duration(1000)
+    .attr("r", (d, i) => {
+      if (i === 0) {
+        baseRadius = Math.pow(parseInt(d.numIncarcerated), 0.5);
+        return 25 * scale;
+      } else {
+        let ratio = Math.pow(parseInt(d.numIncarcerated), 0.5) / baseRadius;
+        return 25 * ratio * scale;
+      }
+    });
+};

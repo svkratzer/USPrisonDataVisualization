@@ -1,5 +1,5 @@
 import {
-  scale,
+  scaleCircleRadii,
   spaceCirclesEvenly,
   formatClassName,
   addEthnicityTooltips
@@ -25,23 +25,9 @@ const createVisualization = () => {
     .attr("id", (d) => {
       return `${formatClassName(d.ethnicity)}-bubble`;
     });
-    
-    // .attr("r", (d) => {
-    //   return Math.pow(parseInt(d.numIncarcerated), 0.5) * scale;
-    // })
 
-  let baseRadius = 0;
-  circles.attr("r", (d, i) => {
-    if(i === 0) {
-      baseRadius = Math.pow(parseInt(d.numIncarcerated), 0.5);
-      return 25;
-    } else {
-      let scale = Math.pow(parseInt(d.numIncarcerated), 0.5) / baseRadius;
-      return 25 * scale;
-    }
-  });
-
-  spaceCirclesEvenly(circles);
+  scaleCircleRadii(circles, 1)
+  spaceCirclesEvenly(circles, 1);
   addEthnicityTooltips(circles);
 };
 

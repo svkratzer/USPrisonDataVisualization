@@ -1,8 +1,9 @@
 import {
-  scale,
+  scaleCircleRadii,
   spaceCirclesEvenly,
   formatClassName,
-  addEthnicityTooltips
+  addEthnicityTooltips,
+  scale
 } from './script_utils';
 
 let ethnicityData = [];
@@ -22,14 +23,12 @@ const createVisualization = () => {
     .enter()
     .append("circle")
     .attr("cy", (h / 2))
-    .attr("r", (d) => {
-      return Math.pow(parseInt(d.numIncarcerated), 0.5) * scale;
-    })
     .attr("id", (d) => {
       return `${formatClassName(d.ethnicity)}-bubble`;
     });
 
-  spaceCirclesEvenly(circles);
+  scaleCircleRadii(circles, 1);
+  spaceCirclesEvenly(circles, 1);
   addEthnicityTooltips(circles);
 };
 
