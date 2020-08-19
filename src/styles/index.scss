@@ -51,8 +51,6 @@ $low-red: rgb(217, 160, 151);
   transition: 0.3s;
 
   &:hover {
-    stroke-width: 2;
-    stroke: black;
     stroke-dasharray: 0 0;
   }
 }
@@ -64,4 +62,8 @@ $low-red: rgb(217, 160, 151);
   position: absolute;
   font-family: sans-serif;
   font-size: 14px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0,0,0, 0.3);
 }
