@@ -1,7 +1,6 @@
 import { 
   scale, 
   spaceCirclesEvenly, 
-  colorCodeCircles,
   formatClassName,
   addEthnicityTooltips } from './script_utils';
 
@@ -10,6 +9,7 @@ let ethnicityData = [];
 const createVisualization = () => {
   const h = 120;
   const w = 1000;
+
   const svg = d3.select("body")
     .append("svg")
     .attr("width", w)
@@ -29,7 +29,6 @@ const createVisualization = () => {
   });
 
   spaceCirclesEvenly(circles);
-  colorCodeCircles(circles);
   addEthnicityTooltips(circles);
 };
 
