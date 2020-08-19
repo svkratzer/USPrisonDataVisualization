@@ -1,0 +1,59 @@
+/* KEY COLORS */
+$high-blue: rgb(90, 135, 49);
+$med-blue: rgb(126, 150, 93);
+$low-blue: rgb(167, 187, 143);
+$high-red: rgb(199, 45, 10);
+$med-red: rgb(230, 119, 97);
+$low-red: rgb(217, 160, 151);
+
+.high-positive, .med-positive, .low-positive {
+  stroke-width: 1;
+  stroke: rgb(76, 117, 38);
+}
+.high-negative, .med-negative, .low-negative {
+  stroke-width: 1;
+  stroke: rgb(143, 31, 6);
+}
+
+.high-positive {
+  fill: $high-blue;
+}
+.med-positive {
+  fill: $med-blue;
+}
+.low-positive {
+  fill: $low-blue;
+}
+.high-negative {
+  fill: $high-red;
+}
+.med-negative {
+  fill: $med-red;
+}
+.low-negative {
+  fill: $low-red;
+}
+
+.high-positive, .med-positive, .low-positive, .high-negative, .med-negative, .low-negative {
+  transition: 0.3s;
+  &:hover {
+    stroke-width: 3;
+    stroke: black;
+  }
+}
+
+
+/* ETHNICITY WEIGHTED BUBBLES */
+#all-males-bubble, #all-females-bubble {
+  stroke-width: 1;
+  stroke: #999;
+  stroke-dasharray: 4 4;
+  fill: rgb(185, 185, 185);
+  transition: 0.3s;
+
+  &:hover {
+    stroke-width: 3;
+    stroke: black;
+    stroke-dasharray: 0 0;
+  }
+}
