@@ -1,12 +1,12 @@
 ethnicity,numIncarcerated
-"Total Population",431 
-"All Males",810
+"Total Population",431
 "All Females",63
+"All Males",810
+"White Females",49
+"Hispanic Females",65
+"Black Females",88
+"Other Females",113
 "White Males",392
-"Black Males",2272
 "Hispanic Males",1018
 "Other Males",1215
-"White Females",49
-"Black Females",88
-"Hispanic Females",65
-"Other Females",113
+"Black Males",2272
