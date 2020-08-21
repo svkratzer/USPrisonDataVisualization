@@ -109,7 +109,7 @@ export const createAllWeightedBubbleChart = () => {
     .attr('fill', 'none')
   
   svg.append('text').attr("x", 310).attr("y", 107).text("Click and drag a bubble to compare").attr("class", "info-text")
-  svg.append('text').attr("x", 310).attr("y", 118).text("it to the population average.").attr("class", "info-text")
+  svg.append('text').attr("x", 310).attr("y", 123).text("it to the population average.").attr("class", "info-text")
 
   const attractForce = d3.forceManyBody().strength(150).distanceMax(4000).distanceMin(80);
   const collisionForce = d3.forceCollide(12).strength(1).iterations(100).radius((d) => { return (d.r + 25) });
@@ -148,17 +148,23 @@ export const createAllWeightedBubbleChart = () => {
     .attr("id", (d) => {
       return `${formatIdName(d.ethnicity)}-cell`
     })
-
-  cells.append("div").text((d) => {
-    return d.ethnicity;
-  })
+  
+  const firstChild = cells.append("div")
 
   const numberWithCommas = (x) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
-  cells.append("div").text((d) => {
+  firstChild.append("div").text((d) => {
+    return d.ethnicity;
+  })
+
+  firstChild.append("div").text((d) => {
     return `${numberWithCommas(d.numIncarcerated)} per 100,000`;
+  })
+
+  cells.append("div").text((d) => {
+    return `(Approx. 1 in ${numberWithCommas(Math.floor(100000 / d.numIncarcerated))})`
   })
 
   scaleCircleRadii(node, 1.4);
