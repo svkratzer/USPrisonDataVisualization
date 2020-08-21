@@ -1,7 +1,35 @@
 body {
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+
+.blm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: black;
+  padding: 5px;
+  color: white;
+  margin-bottom: 8px;
+  font-family: Geneva, Tahoma, sans-serif;
+  a {
+
+    font-size: 16px;
+    color: rgb(100, 147, 201);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    div {
+      text-align: center;
+    }
+  }
 }
 
 .links {
@@ -10,6 +38,7 @@ body {
 }
 
 .header {
+  font-family: Geneva, Tahoma, sans-serif;
   width: 1150px;
   display: flex;
   align-items: center;
@@ -33,7 +62,7 @@ body {
 }
 
 footer {
-  margin-top: 15px;
+  margin-top: 10px;
   font-family: sans-serif;
 
   a:hover {
