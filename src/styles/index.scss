@@ -1,3 +1,21 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+figure {
+  margin: 0;
+  height: 600px;
+  width: 1200px;
+}
+
+svg text {
+  font-size: 24px;
+  font-family: sans-serif;
+  cursor: default;
+}
+
 /* KEY COLORS */
 $high-blue: rgb(90, 135, 49);
 $med-blue: rgb(126, 150, 93);
@@ -43,15 +61,67 @@ $low-red: rgb(217, 160, 151);
 }
 
 /* ETHNICITY WEIGHTED BUBBLES */
-#all-males-bubble, #all-females-bubble {
+#total-bubble {
   stroke-width: 1;
-  stroke: #999;
-  stroke-dasharray: 4 4;
-  fill: rgb(185, 185, 185);
-  transition: 0.3s;
+  fill: rgb(24, 24, 24);
+  
 
   &:hover {
+    stroke-width: 4;
+  }
+}
+
+#all-bubble {
+  stroke-width: 1;
+  fill: rgb(40, 164, 155);
+  stroke: rgb(19, 116, 98);
+  &:hover {
     stroke-dasharray: 0 0;
+    
+  }
+}
+
+#black-bubble {
+  stroke-width: 1;
+  stroke: rgb(110, 23, 23);
+  fill: rgb(199, 45, 10);
+
+  &:hover {
+    stroke-width: 3;
+    
+  }
+}
+
+#white-bubble {
+  stroke-width: 1;
+  stroke: rgb(7, 27, 63);
+  fill: rgb(24, 66, 114);
+
+  &:hover {
+    stroke-width: 3;
+    
+  }
+}
+
+#hispanic-bubble {
+  stroke-width: 1;
+  stroke: rgb(221, 101, 21);
+  fill: rgb(250, 134, 56);
+
+  &:hover {
+    stroke-width: 3;
+    
+  }
+}
+
+#other-bubble {
+  stroke-width: 1;
+  stroke: rgb(13, 88, 38);
+  fill: rgb(17, 121, 30);
+
+  &:hover {
+    stroke-width: 3;
+    
   }
 }
 
@@ -62,8 +132,124 @@ $low-red: rgb(217, 160, 151);
   position: absolute;
   font-family: sans-serif;
   font-size: 14px;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 1);
   padding: 5px;
   border-radius: 4px;
   box-shadow: 0 0 5px rgba(0,0,0, 0.3);
+}
+
+#ethnicity-weighted-all circle {
+  
+  &:hover {
+    stroke-width: 1;
+  }
+}
+
+#bubble-figure {
+  position: relative;
+  border: black 1px solid;
+}
+
+#data-table {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-left: black solid 1px;
+  width: 20%;
+  height: 100%;
+  position: absolute;
+  background-color: grey;
+  z-index: 3;
+  bottom: 0;
+  right: 1px;
+}
+
+.inactive-cell, .active-cell {
+  transition: 0.3s;
+  background-color: rgb(237, 237, 237);
+  font-family: sans-serif;
+  padding: 5px 10px 5px 10px;
+  height: 9%;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  div:first-child {
+    font-weight: bold;
+  }
+}
+
+.active-cell {
+  
+  &#black-males-cell, &#black-females-cell {
+    background-color: rgb(199, 45, 10);
+    color: white;
+  }
+  &#white-males-cell, &#white-females-cell {
+    background-color: rgb(24, 66, 114);
+    color: white;
+  }
+  &#hispanic-males-cell, &#hispanic-females-cell {
+    background-color: rgb(250, 134, 56);
+    color: white;
+  }
+  &#other-males-cell, &#other-females-cell {
+    background-color: rgb(17, 121, 30);
+    color: white;
+  }
+  &#all-males-cell, &#all-females-cell {
+    background-color: rgb(40, 164, 155);
+    color: white;
+  }
+  &#total-population-cell {
+    background-color: rgb(24, 24, 24);
+    color: white;
+  }
+}
+
+
+/* LEGEND */
+.legend text {
+  font-size: 10px;
+  fill: rgb(92, 92, 92);
+}
+
+ellipse {
+  fill: none;
+  stroke: rgb(89, 84, 84);
+  stroke-dasharray: 3 5;
+}
+
+  #total-legend rect {
+    fill: rgb(24, 24, 24);
+  }
+  #black-legend rect {
+    fill: rgb(199, 45, 10);
+  }
+  #white-legend rect {
+    fill: rgb(24, 66, 114);
+  }
+  #hispanic-legend rect {
+    fill: rgb(250, 134, 56);
+  }
+  #all-legend rect {
+    fill: rgb(40, 164, 155);
+  }
+  #other-legend rect {
+    fill: rgb(17, 121, 30); 
+  }
+
+#comparison {
+  fill: rgba(0, 0, 0, 0.125);
+  stroke: rgba(0, 0, 0, 0.118);
+  stroke-width: 2;
+  stroke-dasharray: none;
+}
+
+#comparison-text {
+  fill: rgba(0, 0, 0, 0.406);
+  font-size: 9px;
+  font-weight: bold;
+
 }
