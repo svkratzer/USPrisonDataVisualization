@@ -110,6 +110,7 @@ export const createAllWeightedBubbleChart = () => {
   
   svg.append('text').attr("x", 310).attr("y", 107).text("Click and drag a bubble to compare").attr("class", "info-text")
   svg.append('text').attr("x", 310).attr("y", 123).text("it to the population average.").attr("class", "info-text")
+  svg.append('text').attr("x", 400).attr("y", 590).text("*This graphic was created using data from the Bureau of Justice Statistics 2018 report on U.S. prisons.").attr("class", "info-text")
 
   const attractForce = d3.forceManyBody().strength(150).distanceMax(4000).distanceMin(80);
   const collisionForce = d3.forceCollide(12).strength(1).iterations(100).radius((d) => { return (d.r + 25) });
