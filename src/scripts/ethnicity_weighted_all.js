@@ -92,6 +92,24 @@ export const createAllWeightedBubbleChart = () => {
     .text("50")
     .attr("id", "circle-text");
 
+  const lineGenerator = d3.line()
+    .curve(d3.curveCardinal);
+
+  const points = [
+    [230, 175],
+    [260, 160],
+    [270, 120],
+    [300, 110]
+  ];
+
+  const pathData = lineGenerator(points);
+
+  svg.append('path')
+    .attr('d', pathData)
+    .attr('fill', 'none')
+  
+  svg.append('text').attr("x", 310).attr("y", 107).text("Click and drag a bubble to compare").attr("class", "info-text")
+  svg.append('text').attr("x", 310).attr("y", 118).text("it to the population average.").attr("class", "info-text")
 
   const attractForce = d3.forceManyBody().strength(150).distanceMax(4000).distanceMin(80);
   const collisionForce = d3.forceCollide(12).strength(1).iterations(100).radius((d) => { return (d.r + 25) });
@@ -140,7 +158,7 @@ export const createAllWeightedBubbleChart = () => {
   }
 
   cells.append("div").text((d) => {
-    return `${numberWithCommas(d.numIncarcerated)}`;
+    return `${numberWithCommas(d.numIncarcerated)} per 100,000`;
   })
 
   scaleCircleRadii(node, 1.4);
@@ -188,4 +206,5 @@ export const createAllWeightedBubbleChart = () => {
     .attr("x", 179)
     .attr("y", 208)
     .text("population")
+
 }

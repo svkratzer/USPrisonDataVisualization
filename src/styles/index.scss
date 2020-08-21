@@ -177,6 +177,11 @@ $low-red: rgb(217, 160, 151);
 
   div:first-child {
     font-weight: bold;
+    font-size: 14px;
+  }
+
+  div {
+    font-size: 12px;
   }
 }
 
@@ -208,6 +213,16 @@ $low-red: rgb(217, 160, 151);
   }
 }
 
+path {
+  stroke: rgb(181, 181, 181);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+}
+
+.info-text {
+  font-size: 10px;
+  fill: rgb(130, 130, 130);
+}
 
 /* LEGEND */
 .legend text {
