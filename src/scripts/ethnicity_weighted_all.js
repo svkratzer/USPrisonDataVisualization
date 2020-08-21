@@ -1,6 +1,8 @@
 import {
   scaleCircleRadii,
   formatClassName,
+  formatIdName,
+  linkTableCellsToBubbles
 } from './script_utils';
 
 export const createAllWeightedBubbleChart = () => {
@@ -21,7 +23,7 @@ export const createAllWeightedBubbleChart = () => {
 
   const width = 1200;
   const height = 600;
-  
+
   const bubbleFigure = d3.select("body")
     .append("figure")
     .attr("id", "bubble-figure");
@@ -116,12 +118,6 @@ export const createAllWeightedBubbleChart = () => {
       return `${formatClassName(d.ethnicity)}-bubble`;
     });
 
-  const formatIdName = (name) => {
-    const downcased = name.toLowerCase();
-    const arr = downcased.split(" ");
-    return arr.join("-");
-  }
-
   bubbleFigure.append("table")
     .attr("id", "data-table")
 
@@ -148,18 +144,6 @@ export const createAllWeightedBubbleChart = () => {
   })
 
   scaleCircleRadii(node, 1.4);
-
-  const linkTableCellsToBubbles = (selection) => {
-    selection.on("mouseover", (d) => {
-      let cellId = `#${formatIdName(d.ethnicity)}-cell`
-      d3.select(cellId).attr("class", "active-cell")
-    })
-      .on("mouseout", (d) => {
-        let cellId = `#${formatIdName(d.ethnicity)}-cell`
-        d3.select(cellId).attr("class", "inactive-cell")
-      });
-  }
-
   linkTableCellsToBubbles(node);
 
   function dragstarted(d) {

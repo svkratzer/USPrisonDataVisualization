@@ -67,6 +67,23 @@ const createTooltipText = (ethnicity, numIncarcerated) => {
   return `${ethnicity}: ${numberWithCommas(numIncarcerated)} per 100,000`
 }
 
+export const linkTableCellsToBubbles = (selection) => {
+  selection.on("mouseover", (d) => {
+    let cellId = `#${formatIdName(d.ethnicity)}-cell`
+    d3.select(cellId).attr("class", "active-cell")
+  })
+    .on("mouseout", (d) => {
+      let cellId = `#${formatIdName(d.ethnicity)}-cell`
+      d3.select(cellId).attr("class", "inactive-cell")
+    });
+}
+
+export const formatIdName = (name) => {
+  const downcased = name.toLowerCase();
+  const arr = downcased.split(" ");
+  return arr.join("-");
+}
+
 export const formatClassName = (name) => {
   const downcased = name.toLowerCase();
   const arr = downcased.split(" ");
